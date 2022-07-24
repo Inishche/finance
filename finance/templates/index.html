@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+    <tr>
+        <th>Symbol</th>
+        <th>Name</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+    <tbody>
+        {%for stock in data %}
+        <tr>
+            <td>{{stock["symbol"]}}</td>
+            <td>{{stock["name"]}}</td>
+            <td>{{stock["shares"]}}</td>
+            <td>{{stock["price"]}}</td>
+            <td>{{stock["shares"] * stock["price"]}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <tr>
+        <th>Cash</th>
+        <th>Total</th>
+    </tr>
+    <tbody>
+        <tr>
+            <td>{{cash}}</th>
+            <td>{{total_cash}}</th>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
